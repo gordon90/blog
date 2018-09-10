@@ -1,0 +1,257 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>首页_菅融个人博客 - 一个站在web前端设计之路的女技术员个人博客网站</title>
+<meta name="keywords" content="个人博客,菅融个人博客,菅融" />
+<meta name="description" content="菅融个人博客，是一个站在web前端设计之路的女程序员个人网站，提供个人博客模板免费资源下载的个人原创网站。" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="/static/home/css/base.css" rel="stylesheet">
+<link href="/static/home/css/index.css" rel="stylesheet">
+<link href="/static/home/css/m.css" rel="stylesheet">
+<!--[if lt IE 9]>
+<script src="/static/home/js/modernizr.js"></script>
+
+<!--分页 -->
+<link rel="stylesheet" href="/static/page/css/jquery.pagination.css" />
+<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<script src="/static/page/js/jquery.pagination.min.js"></script>
+{{/*<![endif]-->*/}}
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "微软雅黑";
+            background: #eee;
+        }
+
+        button {
+            display: inline-block;
+            padding: 6px 12px;
+            font-weight: 400;
+            line-height: 1.42857143;
+            text-align: center;
+            vertical-align: middle;
+            cursor: pointer;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            border-color: #28a4c9;
+            color: #fff;
+            background-color: #5bc0de;
+            margin: 20px 20px 0 0;
+        }
+
+        .box {
+            width: 900px;
+            margin: 100px auto 0;
+            height: 34px;
+        }
+
+        .page {
+            width: 700px;
+        }
+
+        .info {
+            width: 200px;
+            height: 34px;
+            line-height: 34px;
+        }
+
+        .fl {
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<header>
+  <div class="logo"><a href="/"><img src="/static/home/images/logo.png"></a></div>
+  <nav id="nav">
+    <ul>
+      <li><a href="/">网站首页</a></li>
+      <li><a href="share">我的相册</a></li>
+      <li><a href="list.html">我的日记</a></li>
+      <li><a href="about">关于我</a></li>
+      <li><a href="gbook">留言</a></li>
+      <li><a href="info">内容页</a></li>
+      <li><a href="infopic">内容页</a></li>
+    </ul>
+  </nav>
+
+  <script>
+window.onload = function ()
+{
+var obj=null;
+var As=document.getElementById('nav').getElementsByTagName('a');
+obj = As[0];
+for(i=1;i<As.length;i++){if(window.location.href.indexOf(As[i].href)>=0)
+obj=As[i];}
+obj.id='selected'
+}
+</script>
+</header>
+<div class="mnav">
+    <ul>
+      <li><a href="/">首页</a></li>
+      <li><a href="share">相册</a></li>
+      <li><a href="list.html">日记</a></li>
+      <li><a href="about">关于</a></li>
+      <li><a href="gbook">留言</a></li>
+      <li><a href="info">内容页</a></li>
+      <li><a href="infopic">内容页</a></li>
+    </ul>
+  </div>
+<article>
+  <div class="l_box">
+    <div class="about_me">
+      <h2>关于我</h2>
+      <ul>
+        <i><img src="/static/home/images/4.jpg"></i>
+        <p><b>菅融</b>，一个80后草根女站长！09年入行。一直潜心研究web前端技术，一边工作一边积累经验，分享一些个人博客模板，以及SEO优化等心得。</p>
+      </ul>
+      </ul>
+    </div>
+    <div class="wdxc">
+      <h2>我的相册</h2>
+      <ul>
+        <li><a href="/"><img src="/static/home/images/7.jpg"></a></li>
+        <li><a href="/"><img src="/static/home/images/8.jpg"></a></li>
+        <li><a href="/"><img src="/static/home/images/9.jpg"></a></li>
+        <li><a href="/"><img src="/static/home/images/10.jpg"></a></li>
+        <li><a href="/"><img src="/static/home/images/11.jpg"></a></li>
+        <li><a href="/"><img src="/static/home/images/12.jpg"></a></li>
+      </ul>
+    </div>
+    <div class="search">
+      <form action="/" method="get" name="searchform" id="searchform">
+        <input list="drivers" name="keyword" id="keyboard" class="input_text" value="请输入关键字词" style="color: rgb(153, 153, 153);" onfocus="if(value=='请输入关键字词'){this.style.color='#000';value=''}" onblur="if(value==''){this.style.color='#999';value='请输入关键字词'}" type="text">
+        <datalist id="drivers">
+        </datalist>
+        {{/*<input name="show" value="title" type="hidden">*/}}
+        {{/*<input name="tempid" value="1" type="hidden">*/}}
+        {{/*<input name="tbname" value="news" type="hidden">*/}}
+        <input name="Submit" class="input_submit" value="搜索" type="submit">
+      </form>
+    </div>
+    <div class="fenlei">
+      <h2>文章分类</h2>
+      <ul>
+        {{range .cate}}
+            <li><a href="/?cate_id={{.id}}">{{.name}}（{{.nums}}）</a></li>
+        {{end}}
+      </ul>
+    </div>
+    <div class="tuijian">
+      <h2>站长推荐</h2>
+      <ul>
+        <li><a href="/">你是什么人便会遇上什么人</a></li>
+        <li><a href="/">帝国cms 列表页调用子栏目，没有则不显示栏目名称</a></li>
+        <li><a href="/">第二届 优秀个人博客模板比赛参选活动</a></li>
+        <li><a href="/">个人博客模板《绅士》后台管理</a></li>
+        <li><a href="/">你是什么人便会遇上什么人</a></li>
+        <li><a href="/">帝国cms 列表页调用子栏目，没有则不显示栏目名称</a></li>
+        <li><a href="/">第二届 优秀个人博客模板比赛参选活动</a></li>
+        <li><a href="/">个人博客模板《绅士》后台管理</a></li>
+      </ul>
+    </div>
+    <div class="links">
+      <h2>友情链接</h2>
+      <ul>
+        <a href="http://www.yangqq.com">杨青个人博客</a> <a href="http://www.yangqq.com">杨青博客</a>
+      </ul>
+    </div>
+    <div class="guanzhu">
+      <h2>关注我 么么哒</h2>
+      <ul>
+        <img src="/static/home/images/wx.jpg">
+      </ul>
+    </div>
+  </div>
+  <div class="r_box">
+      {{range .content}}
+    <li>
+        <i>
+            {{if .img}}
+                <a href="/"><img src="/static/home/images/1.jpg"></a>
+            {{end}}
+        </i>
+      <h3><a href="/info?id={{.id}}">{{.title}}</a></h3>
+        <h3>{{.create_time}}</h3>
+      <p>
+          {{.content}}
+      </p>
+    </li>
+    {{end}}
+    {{/*<div class="pagelist">*/}}
+        {{/*<a class="allpage"><b>99</b></a>&nbsp;&nbsp;*/}}
+        {{/*<a href="#" onclick="page(2)">下一页</a>*/}}
+        {{/*<a href="/" class="curPage">1</a>&nbsp;&nbsp;*/}}
+        {{/*<a href="#" onclick="page(2)">2</a>&nbsp;&nbsp;*/}}
+        {{/*<a href="#" onclick="page(3)">3</a>&nbsp;&nbsp;*/}}
+        {{/*<a href="#" onclick="page(4)">4</a>&nbsp;&nbsp;*/}}
+        {{/*<a href="#" onclick="page(5)">5</a>&nbsp;*/}}
+        {{/*&nbsp;<a href="#" onclick="page(6)">6</a>&nbsp;&nbsp;*/}}
+        {{/*<a href="#" onclick="page(7)">7</a>&nbsp;&nbsp;*/}}
+        {{/*<a href="#" onclick="page(8)">8</a>&nbsp;&nbsp;*/}}
+        {{/*<a href="#" onclick="page(2)">下一页</a>*/}}
+    {{/*</div>*/}}
+
+          <div class="box">
+              <div id="pagination1" class="page fl"></div>
+              <div class="info fl">
+                  <p>当前页数：<span id="current1">1</span></p>
+              </div>
+          </div>
+  </div>
+</article>
+<footer>
+  <p>Design by <a href="http://www.yangqq.com" target="_blank">菅融个人博客</a> <a href="/">蜀ICP备11002373号-1</a></p>
+</footer>
+
+<script>
+    $(function() {
+        $("#pagination1").pagination({
+            currentPage: {{.current_page}},
+            totalPage: {{.total_page}},
+            callback: function(current) {
+                $("#current1").text(current)
+                console.log( $("#current1").text(current))
+               window.location.href = "/?page="+current
+            }
+        });
+
+        // 搜索
+        $("#keyboard").bind("input propertychange",function(event){
+            $.ajax({
+                url: 'vauge',
+                type:"POST",
+                data:{
+                    keyword:$("#keyboard").val(),
+                },
+                async:"true",
+                success: function (result) {
+                    $("#drivers").empty();
+                    appendHtml = "";
+                    if (result.code == 200) {
+                        data = result.data;
+                        for (i=0; i < data.length; i++){
+                            console.log(data[0].id);
+                            appendHtml = appendHtml+"<option value="+data[0].title+">";
+                            console.log(appendHtml);
+                            $("#drivers").append(appendHtml)
+                        }
+                    }
+
+                },
+                error: function (data) {
+                    console.log(data);
+                }
+            })
+        });
+    });
+</script>
+</body>
+</html>
